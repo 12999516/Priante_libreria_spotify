@@ -58,7 +58,11 @@ int main() {
         }
     } while (c != 0);
 
-    realloc(songs, sizeof(struct song) * con);
+    for (int i = 0; i < con; i++) {
+        free(songs[i].nome);
+        free(songs[i].artista);
+    }
+    free(songs);
 
     return 0;
 }
